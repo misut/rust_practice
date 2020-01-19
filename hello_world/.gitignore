@@ -1,0 +1,7 @@
+# No binaries(compiled files)
+*
+!*.*
+!*/
+
+# No vim swaps
+*.swp

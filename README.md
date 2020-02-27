@@ -140,3 +140,48 @@
 - Rust panics at _index out of bounds_ in runtime.
 
 </details>
+
+### Common Programming Concepts - Functions(2020-02-27):
+<details open>
+  <summary>Click to expand</summary>
+
+- Function definitions start with the `fn` keyword and have a set of parentheses after the function name.
+- Rust code uses _snake case_ as the conventional style for function and variable names.
+- Rust doesn't care where functions are defined.
+- Functions can also be defined to have _parameters_, which are special variables that are part of a function's signature.
+- In function signatures, The type of each parameter _must_ be declared.
+- _Statements_ are instructions that perform some action and do not return a value.
+  - e.g) `let y = 6;`, function definitions
+- _Expressions_ evaluate to a resulting value.
+  - Expressions do not include ending semicolons.
+  - e.g) math operations, calling a function/macro, `{}`
+- The return value of a function must be declared with its type after `->`.
+- It can be either using the `return` keyword or the final expression in the block to pass the return value.
+- Single line comments start with `//` until the end of the line.
+
+</details>
+
+### Common Programming Concepts - Control Flow(2020-02-27):
+<details open>
+  <summary>Click to expand</summary>
+
+- An `if` expression allows to branch the code depending on conditions.
+  - `if` expressions start with the keyword `if`, which is followed by a condition.
+- Conditions of `if` expressions must be provided as Boolean type.
+- Rust only executes the block for the first true condition.
+- It is more powerful to use `match` than using too many `else if` expressions.
+- Because `if` is an expression, it can be placed on the right side of a `let` statement.
+  - e.g) `let number = if condition { ... }`
+  - In this case, types of last expressions in `if`, `else if`, and `else` blocks must be equal.
+- Rust has three kinds of loops: `loop`, `while`, and `for`.
+- The `loop` keyword makes an infinite loop.
+  - To break out of a loop, the `break` keyword must be placed.
+  - The loop can also return values using the `break` expression.
+- The `while` loop has a condition, and it checks the condition by each loops until it became false.
+- Using `for` loop, it is able to loop through each element of a collection without consideration to the bound.
+  - It is more safe to use `for` than to use `while` while looping through a collection.
+- `Range` is a type provided by the standard library.
+  - It generates all numbers in sequence starting from one number and ending before another number.
+  - e.g) (1..4)
+
+</details>

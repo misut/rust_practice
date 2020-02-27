@@ -75,14 +75,14 @@
   <summary>Click to expand</summary>
 
 - Rust has a set of _keywords_ that are reserved for use by the language only.
-  - [Reference](https://doc.rust-lang.org/book/appendix-01-keywords.html)
+  - Link: [Reference](https://doc.rust-lang.org/book/appendix-01-keywords.html)
 - Constants are not variables.
   1. It is not allowed to use `mut` with constants.
   2. When a constant is declared using the `const` keyword, its type _must_ be annotated.
   3. Constants may be set only to a constant expression, not the result of a function call or whatever.
 - Rust's naming convention for constants is to use all uppercase with underscores between words.
 - Underscores can be inserted in numeric literals to improve readability.
-  - e.g) \`const MAX_POINTS: u32 = 100_000;\`
+  - e.g) `const MAX_POINTS: u32 = 100_000;`
 - Using shadowing, new variable with the same name can be declared in the different type.
 - Data types are divided into two subsets which are scalar and compound.
 - Rust is a _statically typed_ language.
@@ -110,33 +110,33 @@
   - The default type is `f64`.
 - Rust supports the basic mathematical operations.
   - `+` for addition, `-` for subtraction, `*` for product, `/` for division, and `%` for remainder.
-  - [All operators](https://doc.rust-lang.org/book/appendix-02-operators.html)
+  - Link: [All operators](https://doc.rust-lang.org/book/appendix-02-operators.html)
 - A boolean type in Rust has two possible values: `true` and `false`.
   - Booleans are _one byte_ in size.
   - Booleans are specified using `bool`.
-  - e.g) \`let f: bool = false;\`
+  - e.g) `let f: bool = false;`
 - A character type in Rust is used to represent letters.
   - Characters are _four bytes_ in size and represents a Unicode Scalar Value.
   - Characters are specified using `char`.
   - Character literals are specified with single quotes, as opposed to string literals, which use double quotes.
-  - e.g) \`let c: char = 'z';\`
+  - e.g) `let c: char = 'z';`
 - _Compound types_ can group multiple values into one type.
   - Rust has two primitive compound types: tuples and arrays.
 - Tuples have a fixed length.
   - Once decleared, they cannot grow or shrink in size.
 - The tuple is specified with a comma-separated list of values inside parentheses.
-  - e.g) \`let tup: (i32, f64, u8) = (500, 6.4, 1);\`
+  - e.g) `let tup: (i32, f64, u8) = (500, 6.4, 1);`
 - Rust supports pattern matching to destructure a tuple value.
-  - e.g) \`let (x, y, z) = tup;\`
+  - e.g) `let (x, y, z) = tup;`
 - Rust also supports direct access to a tuple element by using a period.
-  - e.g) \`let six_point_four = tup.1;\`
+  - e.g) `let six_point_four = tup.1;`
 - Arrays also have a fixed length.
   - Every element of an array must have the same type.
 - The array is annotated with values of the same type inside square brackets.
-  - e.g) \`let a: [i32; 5]\`
+  - e.g) `let a: [i32; 5]`
 - Array data are allocated on the stack.
 - An element of an array can be directly accessed with an index inside square brackets.
-  - e.g) \`a[0]\`
+  - e.g) `a[0]`
 - Rust panics at _index out of bounds_ in runtime.
 
 </details>

@@ -71,7 +71,7 @@
 </details>
 
 ### Common Programming Concepts - Data Types(2020-02-27):
-<details open>
+<details>
   <summary>Click to expand</summary>
 
 - Rust has a set of _keywords_ that are reserved for use by the language only.
@@ -128,7 +128,7 @@
   - e.g) `let tup: (i32, f64, u8) = (500, 6.4, 1);`
 - Rust supports pattern matching to destructure a tuple value.
   - e.g) `let (x, y, z) = tup;`
-- Rust also supports direct access to a tuple element by using a period.
+- Rust also supports direct access to a tuple element by using a period, `.`.
   - e.g) `let six_point_four = tup.1;`
 - Arrays also have a fixed length.
   - Every element of an array must have the same type.
@@ -142,7 +142,7 @@
 </details>
 
 ### Common Programming Concepts - Functions(2020-02-27):
-<details open>
+<details>
   <summary>Click to expand</summary>
 
 - Function definitions start with the `fn` keyword and have a set of parentheses after the function name.
@@ -162,7 +162,7 @@
 </details>
 
 ### Common Programming Concepts - Control Flow(2020-02-27):
-<details open>
+<details>
   <summary>Click to expand</summary>
 
 - An `if` expression allows to branch the code depending on conditions.
@@ -186,4 +186,38 @@
 
 </details>
 
-### Hello?
+### Ownership(2020-03-07):
+<details open>
+  <summary>Click to expand</summary>
+
+- All data stored on the stack must have a known, fixed size.
+- Data with an unknown size at compile time or a size that might change must be stored on the heap.
+  - An enough spot on the memory is _allocated on the heap_.
+- Ownership rules:
+  1. Each value in Rust has a variable that's called its _owner_.
+  2. There can only be one owner at a time.
+  3. When the owner goes out of scope, the value will be dropped.
+- A scope is the range within a program for which an item is valid.
+- The _string_ type is stored on the heap.
+  - String literals are stored on the stack.
+  - e.g) `let mut s = String::from("hello");`
+- The double colon, `::`, is an operator that allows to namespace methods under the type.
+- That kind of string can be mutated.
+  - e.g) `s.push_str(", world!");`
+- The `String` type need to be allocated an amount of memory on the heap.
+  - The memory must be requested from the OS at runtime.
+    - This is doen by calling `String::from`.
+  - This memory must be returned to the OS after use.
+    - The memory is automatically returned once the variable goes out of scope.
+- When a `String` variable goes out of scope, Rust calls a `drop` function.
+- When assigning the stack data of a variable to another variable, Rust makes a copy of this value.
+- In case of the `String` type, Rust copies only pointers rather than values.
+  - A `String` is made up of three parts, pointer, length, and capacity.
+- Rust does a _shallow copy_ and also invalidates the first variable to avoid a _double free_ error.
+  - In other words, Rust moves the first variable to the second.
+- To deeply copy the `String`, use a common method called `clone`.
+  - e.g) `let _s = s.clone();`
+- It's possible to return multiple valeus using a tuple.
+  - e.g) `(s, length)`
+
+</details>

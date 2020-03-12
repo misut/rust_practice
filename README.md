@@ -206,7 +206,7 @@
   - e.g) `s.push_str(", world!");`
 - The `String` type need to be allocated an amount of memory on the heap.
   - The memory must be requested from the OS at runtime.
-    - This is doen by calling `String::from`.
+    - This can be done by calling `String::from`.
   - This memory must be returned to the OS after use.
     - The memory is automatically returned once the variable goes out of scope.
 - When a `String` variable goes out of scope, Rust calls a `drop` function.
@@ -215,9 +215,41 @@
   - A `String` is made up of three parts, pointer, length, and capacity.
 - Rust does a _shallow copy_ and also invalidates the first variable to avoid a _double free_ error.
   - In other words, Rust moves the first variable to the second.
-- To deeply copy the `String`, use a common method called `clone`.
+- To copy the `String` deeply, use a common method called `clone`.
   - e.g) `let _s = s.clone();`
-- It's possible to return multiple valeus using a tuple.
+- It's possible to return multiple values using a tuple.
   - e.g) `(s, length)`
+
+</details>
+
+### Ownership - References and Borrowing(2020-03-12):
+<details open>
+  <summary>Click to expand</summary>
+
+- To prevent the ownership of a variable to be moved into a different scope, use a reference.
+  - The ampersand, `&`, allows to refer to some value without taking ownership of it.
+  - To dereference it, use the dereference operator, `*`.
+- Although the reference goes out of its scope, the variable is not dropped.
+  - Setting references as function parameters is called _borrowing_.
+- The value of a reference can be modified only when the reference is set to be mutable.
+- There can be only one mutable reference of the variable at a time.
+- Rust can prevent _data races_ in this fashion.
+- A _data race_ happens when three behaviors occur:
+  1. Two or more pointers access the same data at the same time.
+  2. At least one of the pointers is being used to write to the data.
+  3. There's no mechanism being used to synchronize access to the data.
+- It is not possible to have a mutable reference while having an immutable one.
+  - Multiple immutable references can exist simultaneously.
+  - A reference's scope starts from where it is introduced and continues through the last time that it is used.
+- A _dangling pointer_ is that references a location in memory that may have been given to someone else, by freeing some memory while preserving a pointer to that memory.
+- In Rust, the compiler guarantees that references will never be dangling references.
+  - To do so, Rust introduced a new feature, _lifetime_.
+- Slices let you reference a contiguous sequence of elements in a collection rather than the whole collection.
+- The `enumerate` method returns a tuple that has an index and a reference of an item.
+- A _string slice_ is a reference to part of a `String`.
+  - e.g) `let hello = &s[0..5];`
+- String literals are also slices pointing to that specific point of the binary.
+  - e.g) `&str`
+- Other slices work same as string slices.
 
 </details>

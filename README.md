@@ -187,7 +187,7 @@
 </details>
 
 ### Ownership(2020-03-07):
-<details open>
+<details>
   <summary>Click to expand</summary>
 
 - All data stored on the stack must have a known, fixed size.
@@ -223,7 +223,7 @@
 </details>
 
 ### Ownership - References and Borrowing(2020-03-12):
-<details open>
+<details>
   <summary>Click to expand</summary>
 
 - To prevent the ownership of a variable to be moved into a different scope, use a reference.
@@ -251,5 +251,28 @@
 - String literals are also slices pointing to that specific point of the binary.
   - e.g) `&str`
 - Other slices work same as string slices.
+
+</details>
+
+### Struct(2020-03-13):
+<details open>
+  <summary>Click to expand</summary>
+
+- To define a struct, write the keyword `struct` and name the entire struct.
+  - Inside curly brackets, names and types of data being grouped together  should be described.
+- To use a struct after defining it, create an _instance_ of that struct by specifying concrete values for each of the fields.
+  - Pairs of the field and the value will be assigned in this form `key: value`.
+- To get a specific value from a struct, use dot notation.
+  - e.g) `user1.email = String::from("anotheremail@example.com");`
+  - c.f) Note that the entire instance must be mutable for values to be changed.
+- Rust doesn't allow to mark only certain fields as mutable.
+  - If the parameter names and the struct field names are same, the field names can be omitted.
+- Using _struct update syntax_, it is easily done to create a new instance of a struct that uses most of an old instance's values.
+  - The syntax `..` specifies that the remaining fields not explicitly set have the same value as the given instance.
+- Tuple structs have the added meaning the struct name provides but don't have names associated with their fields.
+  - e.g) `struct Color(u8, u8, u8);`
+- To print out debugging information, the annotation `#[derive(Debug)]` should be added just before the struct definition.
+  - The placeholder should be also changed into `{:?}` for single line print or `{:#?}` for multiple line print.
+- Link: [Derivable Traits](https://doc.rust-lang.org/book/appendix-03-derivable-traits.html)
 
 </details>

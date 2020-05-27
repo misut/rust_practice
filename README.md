@@ -259,7 +259,7 @@
   <summary>Click to expand</summary>
 
 - To define a struct, write the keyword `struct` and name the entire struct.
-  - Inside curly brackets, names and types of data being grouped together  should be described.
+  - Inside curly brackets, names and types of data being grouped together should be described.
 - To use a struct after defining it, create an _instance_ of that struct by specifying concrete values for each of the fields.
   - Pairs of the field and the value will be assigned in this form `key: value`.
 - To get a specific value from a struct, use dot notation.
@@ -274,5 +274,22 @@
 - To print out debugging information, the annotation `#[derive(Debug)]` should be added just before the struct definition.
   - The placeholder should be also changed into `{:?}` for single line print or `{:#?}` for multiple line print.
 - Link: [Derivable Traits](https://doc.rust-lang.org/book/appendix-03-derivable-traits.html)
+
+</details>
+
+### Struct - Methods(2020-05-28):
+<details open>
+  <summary>Click to expand</summary>
+
+- Methods are defined within the context of a struct(or an enum or a trait object).
+  - Their first parameter is always `self`, which represents the instance of the struct the method is being called on.
+- To define the method within the context of a struct, write an `impl` block and implement it in this block.
+  - Use _method syntax_ to call a method: add a dot followed by the method name, parentheses, and any arguments.
+  - e.g) `rect1.area()`
+- To have a method that changes the instance, use `&mut self` as the first parameter, otherwise `&self`.
+- To have a method that takes ownership of the instance, use `self` as the first parameter.
+  - c.f) But this is very rare case.
+- Associated functions don't take `self` as a parameter, for they don't have an instance of the struct to work with.
+  - e.g) `String::from()`
 
 </details>

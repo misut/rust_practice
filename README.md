@@ -56,7 +56,7 @@
 - `{}` is a placeholder for printing values.
 - Before using external crates, they must be included into the `[dependencies]` section in `.toml` file.
   - Cargo understands Semantic Versioning.
-  - e.g) `^0.5.5^ means anyversion that has a public API compatible with version 0.5.5.
+  - e.g) `^0.5.5^ means any version that has a public API compatible with version 0.5.5.
 - With `cargo doc --open`, documentation is built and  provided by all of dependencies within it.
 - `std::cmp::Ordering` type is another enum. (Less, Greter, and Equal)
   - The `cmp` method compares two values.
@@ -157,7 +157,6 @@
   - e.g) math operations, calling a function/macro, `{}`
 - The return value of a function must be declared with its type after `->`.
 - It can be either using the `return` keyword or the final expression in the block to pass the return value.
-- Single line comments start with `//` until the end of the line.
 
 </details>
 
@@ -255,7 +254,7 @@
 </details>
 
 ### Struct(2020-03-13):
-<details open>
+<details>
   <summary>Click to expand</summary>
 
 - To define a struct, write the keyword `struct` and name the entire struct.
@@ -266,7 +265,7 @@
   - e.g) `user1.email = String::from("anotheremail@example.com");`
   - c.f) Note that the entire instance must be mutable for values to be changed.
 - Rust doesn't allow to mark only certain fields as mutable.
-  - If the parameter names and the struct field names are same, the field names can be omitted.
+  - If the parameter names and the struct field names are same, the field names can be omitted.
 - Using _struct update syntax_, it is easily done to create a new instance of a struct that uses most of an old instance's values.
   - The syntax `..` specifies that the remaining fields not explicitly set have the same value as the given instance.
 - Tuple structs have the added meaning the struct name provides but don't have names associated with their fields.
@@ -278,7 +277,7 @@
 </details>
 
 ### Struct - Methods(2020-05-28):
-<details open>
+<details>
   <summary>Click to expand</summary>
 
 - Methods are defined within the context of a struct(or an enum or a trait object).
@@ -291,5 +290,28 @@
   - c.f) But this is very rare case.
 - Associated functions don't take `self` as a parameter, for they don't have an instance of the struct to work with.
   - e.g) `String::from()`
+
+</details>
+
+### Enum(2020-06-25):
+<details open>
+  <summary>Click to expand</summary>
+
+- To define an enumeration, use `enum` keyword and write the variants of the enum inside curly brakets.
+  - e.g) `enum IpAddrKind { V4, V6 }`
+- The variants of the enum are namespaced under its identifier so they should be separated by using a double colon.
+  - e.g) `let four = IpAddrKind::V4;`
+- The variants of the enum can have associated values.
+  - e.g) `enum IpAddr { V4(String), V6(String) }`
+- Each variant can also have different types and amounts of associated data.
+  - e.g) `enum IpAddr {V4(u8, u8, u8, u8), V6(String)}`
+- This IpAddr enum is already in use.
+- Link: [Enum IpAddr](https://doc.rust-lang.org/std/net/enum.IpAddr.html)
+- It is able to define methods on enums using `impl` like on structs.
+- Rust doesn't have the null feature.
+  - But it does have an enum that can encode the concept of a value being present or absent with the `Option<T>` enum.
+  - `<T>` is a generic type parameter.
+  - e.g) `enum Option<T> { Some(T), None, }`
+- Link: [Enum Option](https://doc.rust-lang.org/std/option/enum.Option.html)
 
 </details>

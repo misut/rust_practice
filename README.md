@@ -315,3 +315,19 @@
 - Link: [Enum Option](https://doc.rust-lang.org/std/option/enum.Option.html)
 
 </details>
+
+### Enum - `match` Operator(2020-06-26):
+<details open>
+  <summary>Click to expand</summary>
+
+- The `match` operator allows to compare a value against a series of patterns and then execute code based on which pattern matches.
+  - The expression after the `match` keyword ca be any type.
+- An arm has two parts: a pattern and some code.
+  - Patterns can be made up of literal values, variable names, wildcards, and so on.
+- When the `match` expression executes, it compares the resulting value against the pattern of each arm, in order.
+- The code associated with each arm is an expression and the resulting value of it gets returned for the entire `match` expression.
+- Matches in Rust are _exhaustive_.
+  - Every possibility must be covered in order for the code to be valid.
+- The `_` placeholder can cover default arms.
+
+</details>

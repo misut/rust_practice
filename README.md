@@ -265,7 +265,7 @@
   - e.g) `user1.email = String::from("anotheremail@example.com");`
   - c.f) Note that the entire instance must be mutable for values to be changed.
 - Rust doesn't allow to mark only certain fields as mutable.
-  - If the parameter names and the struct field names are same, the field names can be omitted.
+  - If the parameter names and the struct field names are same, the field names can be omitted.
 - Using _struct update syntax_, it is easily done to create a new instance of a struct that uses most of an old instance's values.
   - The syntax `..` specifies that the remaining fields not explicitly set have the same value as the given instance.
 - Tuple structs have the added meaning the struct name provides but don't have names associated with their fields.
@@ -294,7 +294,7 @@
 </details>
 
 ### Enum(2020-06-25):
-<details open>
+<details>
   <summary>Click to expand</summary>
 
 - To define an enumeration, use `enum` keyword and write the variants of the enum inside curly brakets.
@@ -317,7 +317,7 @@
 </details>
 
 ### Enum - `match` Operator(2020-06-26):
-<details open>
+<details>
   <summary>Click to expand</summary>
 
 - The `match` operator allows to compare a value against a series of patterns and then execute code based on which pattern matches.
@@ -329,5 +329,34 @@
 - Matches in Rust are _exhaustive_.
   - Every possibility must be covered in order for the code to be valid.
 - The `_` placeholder can cover default arms.
+- The `()` is just the unit value.
+- Link: [`unit` Type](https://doc.rust-lang.org/std/primitive.unit.html)
+
+</details>
+
+### Enum - `if let` Syntax(2020-07-13):
+<details>
+  <summary>Click to expand</summary>
+
+- The `if let` syntax combines `if` and `let` into a less verbose way to handle values that match just one pattern while ignoring the rest.
+- The `if let` and `else` is the same as the `match` block with one arm for the first pattern and another for the rest.
+  - It means that the block of code that goes with the `else` is exactly same as the block of code that would go with the `_` case in the `match` expression.
+
+</details>
+
+### Module System - Packages and Crates(2020-07-13):
+<details open>
+  <summary>Click to expand</summary>
+
+- A _crate_ is a binary or library.
+  - The _crate root_ is a source file that the Rust compiler starts from and makes up the root module of the crate.
+- A _package_ is one or more crates that provide a set of functionality.
+  - A package contains a _Cargo.toml_ file that describes how to build those crates.
+- Rules for what a package can contain:
+  1. A package _must_ contain zero or one library crates, and no more.
+  2. A package can contain as many binary crates as possible, but at least one crate(either library or binary).
+- Cargo follows a convention that _src/main.rs_ is the crate root of a binary crate with the same name as the package.
+  - If the package directory contains _src/lib.rs_, Cargo recognizes _src/lib.rs_ as its crate root.
+- A package can have multiple binary crates by placing binaries in the _src/_ directory: each file will be a separate binary crate.
 
 </details>

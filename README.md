@@ -360,3 +360,28 @@
 - A package can have multiple binary crates by placing binaries in the _src/_ directory: each file will be a separate binary crate.
 
 </details>
+
+### Module System - Paths and Scope(2020-07-14):
+<details open>
+  <summary>Click to expand</summary>
+
+- Module helps to organize the code and controls the _privacy_ of items.
+  - _Public_ items can be used by outside code.
+  - _Private_ items are not available for outside use.
+- A module can be defined by starting with the `mod` keyword, and then the name of the module must be specified.
+- A _module tree_ shows how modules are related.
+- To use an item in a module tree, its path should be written.
+- A path can take two forms:
+  1. An _absolute path_ starts from a crate root by using a crate name or a literal crate.
+  2. A _relative path_ starts from the current module and uses `self`, `super`, or an identifier in the current module.
+  - Both are followed by one or more identifiers separated by double colons, `::`.
+- All items(functions, methods, structs, enums, modules, and constants) in Rust are private by default.
+  - Items in a parent module can't use the private items inside child modules.
+  - Items in child modules can use the items in their ancestor modules.
+- Private items in child modules can be exposed to their ancestor modules by using the `pub` keyword.
+- Using super, items in child modules can use the items in their parents.
+- Structs and enums can also be public.
+  - Struct's fields will still be private.
+  - All of enum's variants become public.
+
+</details>

@@ -345,7 +345,7 @@
 </details>
 
 ### Module System - Packages and Crates(2020-07-13):
-<details open>
+<details>
   <summary>Click to expand</summary>
 
 - A _crate_ is a binary or library.
@@ -362,7 +362,7 @@
 </details>
 
 ### Module System - Paths and Scope(2020-07-14):
-<details open>
+<details>
   <summary>Click to expand</summary>
 
 - Module helps to organize the code and controls the _privacy_ of items.
@@ -383,5 +383,47 @@
 - Structs and enums can also be public.
   - Struct's fields will still be private.
   - All of enum's variants become public.
+
+</details>
+
+### Common Collections(2020-12-30):
+<details open>
+  <summary>Click to expand</summary>
+
+- Data which collections point to is stored on the heap.
+- A _vector, string, hash map_ are commonly used collections in Rust programs.
+- To create a new, empty vector, use `Vec::new` function.
+  - Vectors must have data with the same type.
+  - e.g) `let v: Vec<i32> = Vec::new();
+  - e.g) `let v = vec![1, 2, 3];
+- To reference an element in a vector, there are two ways:
+  1. Using square brackets: `&v[2]`
+  2. Using a method: `v.get(2)`
+  - When index out of bounds error occured, the program panics in 1. case but not in 2. case.
+- With an enum, the vector can store multiple types.
+- Rust has only one string type in the core language, which is the string slice `str`.
+- Both `String` and the string slice are UTF-8 encoded.
+- Many of the same operations available with `Vec<T>` are available with `String` as well.
+  - e.g) `let mut s = String::new();`
+- Or can create a `String` from a string literal.
+  - e.g) `let s = "initial contents".to_string();`
+  - e.g) `let s = String::from("initial contents");`
+- To update a string, there are two ways:
+  1. Using a method, `push_str(&str)`, `push(&char)`
+  2. Using a `+` operator: `fn add(self, s; &str) -> String {...}`
+    - `add` takes ownership of `self`.
+- Rust compiler can _coerce_ the `&String` into a `&str`.
+- Rust doesn't support indexing.
+  - A `String` is a wrapper over a `Vec<u8>`.
+  - But each unicode scalar value takes multiple bytes..
+  - So, directly indexing to a `String` element returns an unexpected value.
+- Slicing `String` returns `&str`.
+- Hash maps are homogeneous.
+  - All of the keys must have the same type, and all of the values must have the same type.
+- To construct a hash map:
+  - Use `insert` method: `scores.insert(String::from("Blue"), 10));`
+  - Use iterator and `collect` method: `teams.into_iter().zip(vec_str, vec_score);`
+- Only one value can be associated with a key.
+- Link [`std::collections`](https://doc.rust-lang.org/std/collections/index.html)
 
 </details>

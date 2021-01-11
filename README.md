@@ -387,7 +387,7 @@
 </details>
 
 ### Common Collections(2020-12-30):
-<details open>
+<details>
   <summary>Click to expand</summary>
 
 - Data which collections point to is stored on the heap.
@@ -425,5 +425,22 @@
   - Use iterator and `collect` method: `teams.into_iter().zip(vec_str, vec_score);`
 - Only one value can be associated with a key.
 - Link [`std::collections`](https://doc.rust-lang.org/std/collections/index.html)
+
+</details>
+
+### Error Handling(2021-01-11):
+<details open>
+  <summary>Click to expand</summary>
+
+- Rust has the type `Result<T, E>` for recoverable errors
+- Rust also has the `panic!` macro that stops execution when the program encounters an unrecoverable error.
+- The call to `panic!` causes the error message that shows the place where the panic occurred.
+  - With the `RUST_BACKTRACE` environment variable, the error can be backtraced.
+- With using `Result<T, E>`, recoverable errors are easily interpreted in runtime.
+  - Different errors can also be treated differently by using `match {}`.
+- `unwrap()` method returns the value inside the `Ok`.
+- `expect()` method is similar to `unwrap()` but it can convey the error message that is provided by `panic!`.
+- Instead of handling the error within the function, the erorr can be propagated to the calling code.
+  - Using the `?` operator, the implementation of propagating error can be much easier.
 
 </details>
